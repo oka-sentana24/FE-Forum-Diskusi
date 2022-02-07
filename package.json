@@ -26,6 +26,7 @@
     "node": ">= 12.17.0"
   },
   "dependencies": {
+    "@mdi/js": "^6.5.95",
     "i": "^0.3.7",
     "sass": "^1.49.0",
     "svelte-materialify": "^0.3.11"

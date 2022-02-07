@@ -7,12 +7,268 @@
 @import "./_material-theme.scss";
 @import "./_variable.scss";
 
+@import url("http://fonts.cdnfonts.com/css/sofia-pro");
+
 // global styles
 html,
 body {
+  padding: 0;
+  margin: 0;
   font-family: "Sofia Pro", sans-serif;
+  background-color: $base-color;
+  color: $primary;
 }
 
-.test {
-  background-color: $base-color;
+// Auth
+.auth {
+  background-color: transparent !important;
+  .content {
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+    display: flex;
+    height: 90vh;
+    width: 100%;
+    .static {
+      line-height: 24px;
+      .title {
+        color: $primary;
+        line-height: 45px;
+        font-weight: 700;
+        font-size: 37px;
+      }
+      .desc {
+        width: 268px;
+        color: $primary;
+        font-size: 16px;
+        margin: 20px 0;
+        padding-bottom: 18px;
+        font-weight: 300;
+      }
+      .misi {
+        padding-top: 25px;
+        ul {
+          padding: 0px 15px;
+          margin: 2px;
+        }
+        .visi-title {
+          font-weight: 700;
+        }
+      }
+      .visi {
+        padding-top: 25px;
+        .visi-title {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  //login.css
+  .s-app.theme--light {
+    border-radius: 6px;
+    .main-auth-login {
+      .card {
+        width: 465px;
+        letter-spacing: 0.9px;
+        padding: 30px;
+        background-color: #083a45;
+        .content-form {
+          padding-bottom: 18px;
+          .title {
+            color: $primary;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 18px;
+            line-height: 50px;
+          }
+          .description {
+            color: $primary;
+            font-size: 14px;
+            margin-top: 5px;
+            cursor: default;
+            margin-bottom: 15px;
+            .sub {
+              color: $color-blue-light;
+            }
+          }
+        }
+        .form {
+          input {
+            color: white;
+          }
+          .field {
+            width: 407px;
+            height: 56px;
+            background: #000;
+            border: 1px solid #083a45;
+            box-sizing: border-box;
+            border-radius: 3px;
+            line-height: 50px;
+            margin-bottom: 18px;
+            input {
+              padding-top: 34px;
+            }
+            label {
+              color: gray;
+            }
+            label.active {
+              color: $color-blue-light;
+            }
+            .s-text-field__wrapper:after {
+              border: none;
+            }
+          }
+          .pass {
+            width: 407px;
+            height: 56px;
+            background: #000000b5;
+            border: 1px solid #083a45;
+            box-sizing: border-box;
+            border-radius: 3px;
+            line-height: 50px;
+          }
+          .mdc-text-field--filled .mdc-text-field__ripple::before,
+          .mdc-text-field--filled .mdc-text-field__ripple::after {
+            background-color: unset;
+            background-color: unset;
+          }
+        }
+        .resetPass {
+          color: #04b4cd;
+          font-size: 14px;
+          margin-top: 5px;
+          cursor: default;
+          margin-bottom: 18px;
+        }
+        .checkbox {
+          color: $primary;
+          border-color: white;
+          padding-bottom: 16px;
+          .s-checkbox__wrapper:not(.disabled) {
+            color: white;
+            cursor: pointer;
+          }
+        }
+        .submite button {
+          letter-spacing: 1px;
+          font-size: 14px;
+          color: #083a45 !important;
+          background-color: #fff !important;
+          cursor: pointer;
+          border: 1px solid #0000;
+          border-radius: 3px !important;
+          padding: 0 12px;
+          height: 50px !important;
+          min-height: 50px !important;
+          margin: 0 5px 20px 0 !important;
+          width: 407px;
+        }
+      }
+    }
+  }
+}
+
+.main-admin {
+  .admin-content {
+    display: flex;
+    .mini-side {
+      background-color: #000;
+      width: 70px;
+      height: 100vh;
+      border-right: 1px solid #083a45;
+    }
+    .sidebar {
+      background-color: #000;
+      width: 200px;
+      height: 100vh;
+      border-right: 1px solid #083a45;
+      .line {
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          border-bottom: 1px solid #083a45;
+          top: 83px;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          border-bottom: 1px solid #083a45;
+          top: 142px;
+        }
+      }
+      .s-list.nav .s-list-item:not(:last-child):not(:only-child),
+      .s-list.rounded .s-list-item:not(:last-child):not(:only-child) {
+        margin-bottom: 20px;
+      }
+      .s-list-item.link.s-ripple-container {
+        color: white;
+      }
+      .s-list-item.link.s-ripple-container.active {
+        color: #04b4cd !important;
+        background-color: none;
+      }
+    }
+    .content {
+      padding: 10px 20px;
+      width: 100%;
+      .s-breadcrumbs {
+        padding: 0;
+      }
+      .title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 35px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        border-bottom: 1px solid #083a45;
+        top: 112px;
+        left: 261px;
+      }
+      .s-input__slot {
+        border-radius: inherit;
+        align-items: center;
+        color: inherit;
+        display: flex;
+        margin-bottom: 8px;
+        position: relative;
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+        color: white;
+        background-color: #25385854;
+        height: 40px;
+        width: 126px;
+        .s-text-field__wrapper.solo {
+          min-height: none;
+          box-shadow: none;
+        }
+      }
+      .filter {
+        .s-menu {
+          left: 0px;
+          transform-origin: left top;
+          z-index: 8;
+          background-color: white;
+          top: 56px !important;
+        }
+      }
+      .main-tabel {
+        background-color: #083a45;
+        width: 100%;
+        .s-tbl {
+          display: contents !important;
+          width: 100% !important;
+          th.s-tbl-cell {
+            background-color: #086d7b;
+          }
+        }
+        table {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
