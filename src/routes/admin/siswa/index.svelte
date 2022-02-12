@@ -6,23 +6,29 @@
       DataTableRow,
       DataTableCell,
       DataTableBody,
-    MaterialApp } from 'svelte-materialify';
-    import {Button} from 'svelte-materialify';
-    import { Row, Col, Select} from 'svelte-materialify';
-    import { Checkbox} from 'svelte-materialify';
+      Button,
+      Row, Col, Select,Checkbox
+   } from 'svelte-materialify';
+    let checked = false;
+    let group = [1,2,3,4,5]
 
   const items = [
     { name: 'Delete', value: 'Delete' },
   ];
-  let group = ['2'];
-  let columns = ["Name", "Email", "Phone Number"]
+
+  let columns = ["Nisn", "Nama", "Jurusan", "Kelas", "Alamat", "Jenis Kelamin", "Tempat lahir", "Agama", "No tlp", "Email", "Kewarganegaraan", "Kecamatan", "Kabupaten"]
 	let data = [
     ["John", "john@example.com", "(353) 01 222 3333"],
     ["Mark", "mark@gmail.com", "(01) 22 888 4444"],
     ["Eoin", "eoin@gmail.com", "0097 22 654 00033"],
     ["Sarah", "sarahcdd@gmail.com", "+322 876 1233"],
-    ["Afshin", "afshin@mail.com", "(353) 22 87 8356"]
+    ["Afshin", "afshin@mail.com", "(353) 22 87 8356"],
+    
   ]
+
+  //Checkall Checkbox
+
+
   </script>
 
   <div class="main-siswa">
@@ -35,7 +41,7 @@
         </Row>
       </div>
       <div class="create">
-        <Button depressed class="primary-color">Primary</Button>
+        <Button>New siswa</Button>
       </div>
     </div>
     <div class="main-tabel">  
@@ -43,7 +49,7 @@
           <DataTableHead>
             <DataTableRow>
               <DataTableCell>
-                <Checkbox bind:group value="1"/>
+                <Checkbox bind:group value={data}/>
               </DataTableCell>
               {#each columns as column}
               <DataTableCell>{column}</DataTableCell>
@@ -54,7 +60,7 @@
             {#each data as row}
             <DataTableRow>
               <DataTableCell>
-                <Checkbox bind:group value="2"/>
+                <Checkbox bind:group value={data}/>
               </DataTableCell>
                 {#each row as cell}
                   <DataTableCell>

@@ -1,12 +1,30 @@
-<script lang="ts">
+<script lang="ts" context="module">
+  export const ssr = false;
 	import {Card, TextField, MaterialApp, Checkbox, Button} from 'svelte-materialify';
-
-  
-
-	let clicked = 0;
+  import { API } from '../../api/Api';
 	let username = '';
 	let password = '';
 	let group = ['2'];
+
+  
+  const getPokemonList = async () => {
+    try {
+      const response = await API.post("signin",{username,password});
+      console.log(response)
+      return response.results;
+    } catch (error) {
+      console.error(error);
+    }
+  // import { onMount } from "svelte";
+  // const endpoint = "https://jsonplaceholder.typicode.com/posts";
+  // let posts = [];
+
+  // onMount(async function () {
+  //   const response = await fetch(endpoint);
+  //   const data = await response.json();
+  //   console.log(data);
+  // });
+};
 </script>
 <MaterialApp>
     <div class="main-auth-login">
@@ -44,7 +62,7 @@
           <Checkbox bind:group value="1">Remember me.</Checkbox>
         </div>
         <div class="submite">
-          <Button on:click={() => clicked++} touch>
+          <Button on:click={() => getPokemonList()} touch>
            Sign in
           </Button>
         </div>

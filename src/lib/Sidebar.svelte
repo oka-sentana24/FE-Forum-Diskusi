@@ -4,10 +4,8 @@
     ListItemGroup,
     NavigationDrawer,
     ListItem,
-    Avatar,
     Icon,
-    Divider,
-  MaterialApp } from 'svelte-materialify';
+  } from 'svelte-materialify';
   import {
     mdiFolder,
     mdiAccountMultiple,
