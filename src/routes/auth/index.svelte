@@ -1,31 +1,35 @@
-<script lang="ts" context="module">
-  export const ssr = false;
+<script lang="ts">
 	import {Card, TextField, MaterialApp, Checkbox, Button} from 'svelte-materialify';
-  import { API } from '../../api/Api';
-	let username = '';
-	let password = '';
-	let group = ['2'];
-
   
-  const getPokemonList = async () => {
-    try {
-      const response = await API.post("signin",{username,password});
-      console.log(response)
-      return response.results;
-    } catch (error) {
-      console.error(error);
-    }
-  // import { onMount } from "svelte";
-  // const endpoint = "https://jsonplaceholder.typicode.com/posts";
-  // let posts = [];
+  //API fetch login
+    let username = '';
+    let password = '';
+    async function login() {
+      const response = await fetch('http://localhost:3001/signin',{
+          method: 'POST',
+          credentials: 'same-origin',
+          body: JSON.stringify({ username, password }),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      })
+      .then( response => {
 
-  // onMount(async function () {
-  //   const response = await fetch(endpoint);
-  //   const data = await response.json();
-  //   console.log(data);
-  // });
-};
+        if ( response.status === 200) {
+          window.location.href="/admin";
+        }
+
+        // what do you do with a non-redirect?
+
+        }).catch((err) => {
+        console.log(err);
+      });
+    }
+
+  //Validasi form
+ 
 </script>
+
 <MaterialApp>
     <div class="main-auth-login">
       <Card class="card">
@@ -37,7 +41,7 @@
             Belum memiliki akun? <span class="sub">hubungi pihak sekolah</span>.
           </span>
         </div>
-        <form action="" class="form">
+        <form class="form">
           <TextField
            filled
             bind:value={username}
@@ -49,7 +53,7 @@
           <TextField
           filled
           bind:value={password}
-          type="text"
+          type="password"
           class="field"
           min="1"
           max="5"
@@ -58,11 +62,11 @@
             <span>Forgot password?</span>
           </div>
         </form>
-        <div class="checkbox">
+        <!-- <div class="checkbox">
           <Checkbox bind:group value="1">Remember me.</Checkbox>
-        </div>
-        <div class="submite">
-          <Button on:click={() => getPokemonList()} touch>
+        </div> -->
+        <div class="submite" on:click={()=>login()}>
+          <Button  touch>
            Sign in
           </Button>
         </div>

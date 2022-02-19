@@ -1,6 +1,7 @@
 const sveltePreprocess = require("svelte-preprocess");
 const node = require("@sveltejs/adapter-node");
 const pkg = require("./package.json");
+const path = require("path");
 
 /** @type {import('@sveltejs/kit').Config} */
 module.exports = {
@@ -17,13 +18,21 @@ module.exports = {
     // You can create optimized builds for different platforms by
     // specifying a different adapter
     adapter: node(),
-
     // hydrate the <div id="svelte"> element in src/app.html
     target: "#svelte",
 
     vite: {
+      hmr: { overlay: false },
       ssr: {
         noExternal: Object.keys(pkg.dependencies || {}),
+      },
+      resolve: {
+        alias: {
+          $utils: path.resolve("./src/utils"),
+        },
+      },
+      optimizeDeps: {
+        exclude: ["@urql/svelte"],
       },
     },
   },

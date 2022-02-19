@@ -9,6 +9,7 @@
       Button,
       Row, Col, Select,Checkbox
    } from 'svelte-materialify';
+   import Link from "svelte-link";
     let checked = false;
     let group = [1,2,3,4,5]
 
@@ -16,13 +17,13 @@
     { name: 'Delete', value: 'Delete' },
   ];
 
-  let columns = ["Nisn", "Nama", "Jurusan", "Kelas", "Alamat", "Jenis Kelamin", "Tempat lahir", "Agama", "No tlp", "Email", "Kewarganegaraan", "Kecamatan", "Kabupaten"]
+  let columns = ["Nisn", "Nama", "Jurusan", "Kelas", "Alamat", "Jenis Kelamin", "Tempat lahir", "Agama", "No tlp", "Email"]
 	let data = [
-    ["John", "john@example.com", "(353) 01 222 3333"],
-    ["Mark", "mark@gmail.com", "(01) 22 888 4444"],
-    ["Eoin", "eoin@gmail.com", "0097 22 654 00033"],
-    ["Sarah", "sarahcdd@gmail.com", "+322 876 1233"],
-    ["Afshin", "afshin@mail.com", "(353) 22 87 8356"],
+    ["170030299", "john@example.com", "(353) 01 222 3333","john@example.com", "(353) 01 222 3333","john@example.com", "(353) 01 222 3333","(353) 01 222 3333","john@example.com", "(353) 01 222 3333"],
+    ["170030299", "john@example.com", "(353) 01 222 3333","john@example.com", "(353) 01 222 3333","john@example.com", "(353) 01 222 3333","(353) 01 222 3333","john@example.com", "(353) 01 222 3333"],
+    ["170030299", "john@example.com", "(353) 01 222 3333","john@example.com", "(353) 01 222 3333","john@example.com", "(353) 01 222 3333","(353) 01 222 3333","john@example.com", "(353) 01 222 3333"],
+    ["170030299", "john@example.com", "(353) 01 222 3333","john@example.com", "(353) 01 222 3333","john@example.com", "(353) 01 222 3333","(353) 01 222 3333","john@example.com", "(353) 01 222 3333"],
+    ["170030299", "john@example.com", "(353) 01 222 3333","john@example.com", "(353) 01 222 3333","john@example.com", "(353) 01 222 3333","(353) 01 222 3333","john@example.com", "(353) 01 222 3333"],
     
   ]
 
@@ -36,21 +37,20 @@
       <div class="filter">
         <Row>
           <Col>
-            <Select solo items={items} placeholder="Bulk Action"/>
+            <Select solo items={items} placeholder="Filter"/>
           </Col>
         </Row>
       </div>
       <div class="create">
-        <Button>New siswa</Button>
+        <Button><a href="/admin/siswa/create">
+          New siswa
+        </a></Button>
       </div>
     </div>
     <div class="main-tabel">  
         <DataTable>
           <DataTableHead>
             <DataTableRow>
-              <DataTableCell>
-                <Checkbox bind:group value={data}/>
-              </DataTableCell>
               {#each columns as column}
               <DataTableCell>{column}</DataTableCell>
               {/each}
@@ -59,9 +59,6 @@
           <DataTableBody>
             {#each data as row}
             <DataTableRow>
-              <DataTableCell>
-                <Checkbox bind:group value={data}/>
-              </DataTableCell>
                 {#each row as cell}
                   <DataTableCell>
                     {cell}
