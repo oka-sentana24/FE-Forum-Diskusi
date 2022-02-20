@@ -27,7 +27,21 @@
     }
 
   //Validasi form
- 
+  const validasiusername = [
+    (v) => !!v || 'Required',
+    (v) => v.length <= 25 || 'Max 25 characters',
+    (v) => {
+      const pattern = /[0-9][A-Za-z0-9 -]*$/;
+      return pattern.test(v) || 'INVALID Nip/Nisn.';
+    },
+  ];
+  const validasipassword = [
+    (v) => !!v || 'Required',
+    (v) => {
+      const pattern = /^[a-zA-Z0-9]+$/;
+      return pattern.test(v) || 'INVALID Password.';
+    },
+  ];
 </script>
 
 <MaterialApp>
@@ -44,27 +58,25 @@
         <form class="form">
           <TextField
            filled
-            bind:value={username}
-            type="number"
+            type="username"
             class="field"
-            min="1"
-            max="5"
+            rules={validasiusername}
+            bind:value={username}
           >Nisn / Nip</TextField>
           <TextField
           filled
-          bind:value={password}
           type="password"
           class="field"
-          min="1"
-          max="5"
+          rules={validasipassword}
+          bind:value={password}
           >Password</TextField>
           <div class="resetPass">
             <span>Forgot password?</span>
           </div>
         </form>
-        <!-- <div class="checkbox">
-          <Checkbox bind:group value="1">Remember me.</Checkbox>
-        </div> -->
+        <div class="checkbox">
+          <Checkbox checked={false}>Remember me.</Checkbox>
+        </div>
         <div class="submite" on:click={()=>login()}>
           <Button  touch>
            Sign in
