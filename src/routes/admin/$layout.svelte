@@ -2,10 +2,11 @@
 	import Sidebar from '$lib/Sidebar/sidebar.svelte';
 	import SidebarMini from '$lib/Sidebar/sidebar-mini.svelte';
 	import HeaderAdmin from '$lib/Header/admin.svelte';
+	import { Divider } from 'svelte-materialify';
 </script>
 
 <main class="admin">
-	<div class="md:flex md:flex-cols-2 md:gap-5">
+	<div class="md:flex md:flex-cols-2">
 		<div class="flex flex-cols-2">
 			<div class="mini-side">
 				<SidebarMini />
@@ -14,44 +15,30 @@
 				<Sidebar/>
 			</div>
 		</div>
-		<div>dddddd</div>
-	</div>
-</main>
-
-<!-- <div class="main-admin">
-	<div class="admin-content">
-		<div class="mini-side">
-				<SidebarMini />
-		</div>
-		<div class="sidebar">
-			<Sidebar />
-		</div>
-		<div class="content">
-			<div>
+		<div class="main-content">
+			<div class="header">
 				<HeaderAdmin/>
-				<div class="title">
-					Dasboard
-				</div>
+				<span>Dasboard</span>
 			</div>
-			<div class="py-5">
+			<div class="content">
 				<slot/>
 			</div>
 		</div>
-	</div> -->
-	
-	<!-- <div>
-		<Sidebar />
-	</div> -->
-	<!-- <div class="admin-content">
-		<div class="mini-sidebar">
-			<SidebarMini />
-		</div>
-		<div class="content-nav">
-			<Sidebar />
-		</div>
-		<div class="content-page w-full px-5">
-			<HeaderAdmin/>
-			<slot />
-		</div>
-	</div> -->
-<!-- </div> -->
+	</div>
+</main>
+
+<style lang="scss">
+	.main-content{
+		width: 86%;
+		.header{
+			border-bottom: 1px solid #083a45;
+			padding-bottom: 10px;
+			span{
+				font-style: normal;
+				font-weight: 700;
+				padding: 15px;
+    		font-size: 35px;
+			}
+		}
+	}
+</style>
