@@ -2,6 +2,7 @@
 	import {Card, TextField, MaterialApp, Checkbox, Button} from 'svelte-materialify';
   
   //API fetch login
+    let active = false;
     let username = '';
     let password = '';
     async function login() {
@@ -57,11 +58,11 @@
         </div>
         <form class="form">
           <TextField
-           filled
-            type="username"
-            class="field"
-            rules={validasiusername}
-            bind:value={username}
+          filled
+          type="username"
+          class="field"
+          rules={validasiusername}
+          bind:value={username}
           >Nisn / Nip</TextField>
           <TextField
           filled

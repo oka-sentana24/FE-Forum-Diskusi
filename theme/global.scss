@@ -96,60 +96,21 @@ body {
           input {
             color: white;
           }
-          .field {
-            width: 407px;
-            height: 56px;
-            background: #000;
-            border: 1px solid #083a45;
-            box-sizing: border-box;
-            border-radius: 3px;
-            margin-bottom: 20px;
-            input {
-              padding-top: 34px;
-            }
-            label {
-              color: gray;
-            }
-            label.active {
-              color: $color-blue-light;
-            }
-            .s-text-field__wrapper:after {
-              border: none;
-            }
-            .s-text-field__wrapper:after,
-            .s-text-field__wrapper:before {
-              border-radius: 0;
-              width: 0;
-            }
-            .s-input__details {
-              div {
-                span {
-                  position: absolute;
-                  padding: 0px 12px;
-                  margin-top: -3px;
-                  color: #ff3e00;
-                  font-size: 12px;
-                  width: 407px;
-                  font-family: "Sofia Pro", sans-serif;
-                  letter-spacing: 2px;
-                }
-              }
-            }
-          }
-          .pass {
-            width: 407px;
-            height: 56px;
-            background: #000000b5;
-            border: 1px solid #083a45;
-            box-sizing: border-box;
-            border-radius: 3px;
-            line-height: 50px;
-          }
-          .mdc-text-field--filled .mdc-text-field__ripple::before,
-          .mdc-text-field--filled .mdc-text-field__ripple::after {
-            background-color: unset;
-            background-color: unset;
-          }
+          ///
+          // .pass {
+          //   width: 407px;
+          //   height: 56px;
+          //   background: #000000b5;
+          //   border: 1px solid #083a45;
+          //   box-sizing: border-box;
+          //   border-radius: 3px;
+          //   line-height: 50px;
+          // }
+          // .mdc-text-field--filled .mdc-text-field__ripple::before,
+          // .mdc-text-field--filled .mdc-text-field__ripple::after {
+          //   background-color: unset;
+          //   background-color: unset;
+          // }
         }
         .resetPass {
           color: #04b4cd;
@@ -194,39 +155,6 @@ body {
       width: 70px;
       height: 100vh;
       border-right: 1px solid #083a45;
-    }
-    .sidebar {
-      background-color: #000;
-      width: 200px;
-      height: 100vh;
-      border-right: 1px solid #083a45;
-      .line {
-        &::after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          border-bottom: 1px solid #083a45;
-          top: 83px;
-        }
-        &::before {
-          content: "";
-          position: absolute;
-          width: 100%;
-          border-bottom: 1px solid #083a45;
-          top: 142px;
-        }
-      }
-      .s-list.nav .s-list-item:not(:last-child):not(:only-child),
-      .s-list.rounded .s-list-item:not(:last-child):not(:only-child) {
-        margin-bottom: 20px;
-      }
-      .s-list-item.link.s-ripple-container {
-        color: white;
-      }
-      .s-list-item.link.s-ripple-container.active {
-        color: #04b4cd !important;
-        background-color: none;
-      }
     }
     .content {
       padding: 10px 20px;
@@ -288,5 +216,106 @@ body {
         }
       }
     }
+  }
+}
+
+// Global Sidebar Css
+// .sidebar {
+//   background-color: #000;
+//   width: 200px !important;
+//   height: 100vh;
+//   border-right: 1px solid #083a45;
+//   .line {
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       width: 169px;
+//       border-bottom: 1px solid #083a45;
+//       top: 95px;
+//     }
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       width: 168px;
+//       border-bottom: 1px solid #083a45;
+//       top: 157px;
+//     }
+//   }
+//   .s-list.nav .s-list-item:not(:last-child):not(:only-child),
+//   .s-list.rounded .s-list-item:not(:last-child):not(:only-child) {
+//     margin-bottom: 20px;
+//   }
+//   .s-list-item.link.s-ripple-container {
+//     color: white;
+//   }
+//   .s-list-item.link.s-ripple-container.active {
+//     color: #04b4cd !important;
+//     background-color: none;
+//   }
+// }
+
+// Global textfield Css
+.field {
+  width: 407px;
+  height: 56px;
+  background: #000;
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  border: 1px solid;
+  input {
+    padding-top: 34px;
+  }
+  label {
+    color: gray !important;
+  }
+  label.active {
+    color: $color-blue-light !important;
+  }
+  .s-text-field__wrapper.filled input {
+    padding-top: 29px;
+  }
+  .s-text-field__wrapper:after {
+    border: none;
+  }
+  .s-text-field__wrapper:after,
+  .s-text-field__wrapper:before {
+    border-radius: 0;
+    width: 0;
+  }
+  .s-input__details {
+    div {
+      span {
+        position: absolute;
+        padding: 0px 12px;
+        margin-top: -3px;
+        color: #ff3e00 !important;
+        font-size: 12px;
+        width: 407px;
+        font-family: "Sofia Pro";
+        letter-spacing: 2px;
+      }
+    }
+  }
+}
+.s-input.s-text-field.field.primary-text {
+  color: $color-blue-light !important;
+  caret-color: $color-blue-light !important;
+}
+
+//Layout Admin
+
+.admin {
+  .mini-side {
+    background-color: #000;
+    width: 70px;
+    height: 100vh;
+    border-right: 1px solid #083a45;
+  }
+  .sidebar {
+    background-color: #000;
+    width: 200px !important;
+    height: 100vh;
+    border-right: 1px solid #083a45;
   }
 }
